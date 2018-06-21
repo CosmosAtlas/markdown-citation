@@ -1,0 +1,27 @@
+<!doctype html>
+
+
+
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title> Test html for javascript </title>
+</head>
+
+<body>
+  <div id='markdown'> </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+  <script>
+    var converter = new showdown.Converter(),
+        text      = '# Hello, Markdown!',
+        html      = converter.makeHtml(text);
+    console.log(html);
+    document.getElementById('markdown').innerHTML = html;
+    console.log("test");
+  </script>
+</body>
+</html>
