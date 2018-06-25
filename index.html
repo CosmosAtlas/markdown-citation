@@ -6,8 +6,6 @@
 <head>
   <meta charset="utf-8">
   <title> Test html for javascript </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
-  <style>@page { size: letter }</style>
   <link rel="stylesheet" href="https://unpkg.com/picnic">
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
   <script type="text/x-mathjax-config">
@@ -21,8 +19,8 @@ MathJax.Hub.Config({
 
 </head>
 
-<body class = "letter">
-  <section class="sheet padding-10mm">
+<body>
+  <!-- <input type="button" value="Print" id="MyButton" > -->
   <div id='markdown'> </div>
 
 
@@ -31,9 +29,17 @@ MathJax.Hub.Config({
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
-  <script src="scripts/showdown-footnotes.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.1/markdown-it.js"></script>
+  <script src="scripts/markdown-it-footnote.min.js"></script>
   <script src="main.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#MyButton').click(function(){
+
+      });
+    });
+  </script>
   <!-- <script>
     function getText(myUrl){
       var result = null;
@@ -54,6 +60,5 @@ MathJax.Hub.Config({
     document.getElementById('markdown').innerHTML = html;
     console.log("test");
   </script> -->
-</section>
 </body>
 </html>

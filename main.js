@@ -11,9 +11,9 @@ function getText(myUrl){
   return result;
 }
 
-var converter = new showdown.Converter({tables: true, extensions: ['footnotes']}),
+var md = new window.markdownit({html: true}).use(window.markdownitFootnote),
     text      = getText('./examples/example.md'),
-    html      = converter.makeHtml(text);
+    html      = md.render(text);
 console.log(html);
 document.getElementById('markdown').innerHTML = html;
 console.log("test");
