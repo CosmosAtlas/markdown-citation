@@ -6,22 +6,54 @@
 <head>
   <meta charset="utf-8">
   <title> Test html for javascript </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+  <style>@page { size: letter }</style>
+  <link rel="stylesheet" href="https://unpkg.com/picnic">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+  </script>
+  <link rel="stylesheet" href="themes/prism.css" data-noprefix />
+  <script src="scripts/prism.js"></script>
+
+
 </head>
 
-<body>
+<body class = "letter">
+  <section class="sheet padding-10mm">
   <div id='markdown'> </div>
 
 
 
-
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
-  <script>
-    var converter = new showdown.Converter(),
-        text      = '# Hello, Markdown!',
+  <script src="scripts/showdown-footnotes.js"></script>
+  <script src="main.js"></script>
+  <!-- <script>
+    function getText(myUrl){
+      var result = null;
+      $.ajax( {url: myUrl,
+               type: 'get',
+               dataType: 'html',
+               async: false,
+               success: function(data) {result = data; }
+             }
+           );
+      FlieReady = true;
+      return result;
+    }
+    var converter = new showdown.Converter({tables: true}),
+        text      = getText('./examples/example.md'),
         html      = converter.makeHtml(text);
     console.log(html);
     document.getElementById('markdown').innerHTML = html;
     console.log("test");
-  </script>
+  </script> -->
+</section>
 </body>
 </html>
