@@ -148,3 +148,13 @@ Proin sit amet orci diam. Proin elementum mauris eu odio placerat vulputate. Fus
 Sed eu dignissim nisi. Sed et pellentesque sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla tristique felis, at consectetur arcu finibus eu. Duis tincidunt interdum lorem, quis condimentum risus facilisis ac. Vivamus tellus tellus, porttitor quis accumsan in, rutrum at nunc. Phasellus non eros non lacus consectetur placerat nec id mauris. Integer ut augue rhoncus est luctus imperdiet vehicula ac magna. Cras feugiat enim sit amet eros ultrices sodales. Sed non erat et diam tristique eleifend ac sed eros. Quisque placerat nisl ac nibh volutpat vulputate. Cras vitae congue tortor, eu euismod tellus. Aliquam erat dui, pretium et luctus molestie, posuere ac velit.
 
 Maecenas fringilla massa ante. Morbi justo purus, rutrum ut finibus a, iaculis et tellus. Pellentesque pulvinar, arcu et scelerisque rhoncus, est nulla gravida mauris, vel finibus augue nisl at eros. Ut non sapien posuere, tempus nulla in, finibus elit. Ut dapibus erat at sapien volutpat consequat. Quisque sit amet dapibus tellus, iaculis convallis velit. Sed viverra felis libero, ut pharetra odio congue eu. Fusce bibendum, tellus at condimentum dapibus, enim nisl varius dui, eget consequat leo nibh at tortor. Phasellus felis sapien, ullamcorper quis mi vel, placerat vulputate sem. Cras eu nisl vitae nibh rutrum placerat nec at velit. Nunc molestie nisl sed enim aliquam maximus a eu justo. Nullam vitae volutpat ipsum. Quisque laoreet mollis pretium.
+
+Hello World
+
+FN1[^FN1] FN2^[Inline footnote] FN3[^FN1]
+
+
+Hello World
+
+
+[^FN1]: Duplicate Footnote

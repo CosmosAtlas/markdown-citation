@@ -23,6 +23,57 @@ MathJax.Hub.Config({
   <!-- <input type="button" value="Print" id="MyButton" > -->
   <div id='markdown'> </div>
 
+  <textarea id="bibtex_input" style="display:none;">
+    @article{einstein,
+        author =       "Albert Einstein",
+        title =        "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
+            [{On} the electrodynamics of moving bodies]",
+        journal =      "Annalen der Physik",
+        volume =       "322",
+        number =       "10",
+        pages =        "891--921",
+        year =         "1905",
+        DOI =          "http://dx.doi.org/10.1002/andp.19053221004"
+      }
+  </textarea>
+  <div id="bibtex_display">
+
+    <div class="if bibtex_template" style="display: none;">
+      <ul> <li>
+        <span class="if journal !nolink">
+          <a class="bibtexVar" extra="BIBTEXKEY">
+              <span style="text-decoration: underline;" class="title"></span>,
+          </a>
+        </span>
+        <span class="if title nolink">
+              <span class="title"></span>,
+        </span>
+        <div class="if author">
+          <span class="author"></span>
+        </div>
+        <div>
+          <span class="if journal"><em><span class="journal"></span></em>,</span>
+          <span class="if booktitle">In <em><span class="booktitle"></span></em>,</span>
+          <span class="if editor"><span class="editor"></span> (editors),</span>
+          <span class="if publisher"><em><span class="publisher"></span></em>,</span>
+          <span class="if !journal number">Technical report <span class="number"></span>,</span>
+          <span class="if institution"><span class="institution"></span>,</span>
+          <span class="if address"><span class="address"></span>,</span>
+          <span class="if volume"><span class="volume"></span>,</span>
+          <span class="if journal number">(<span class="number"></span>),</span>
+          <span class="if pages"> pages <span class="pages"></span>,</span>
+          <span class="if month"><span class="month"></span>,</span>
+          <span class="if year"><span class="year"></span>.</span>
+          <span class="if note"><span class="note"></span>.</span>
+          <a class="bibtexVar" role="button" data-toggle="collapse" href="#bib+BIBTEXKEY+" aria-expanded="false" aria-controls="bib+BIBTEXKEY+" extra="BIBTEXKEY">
+  		</a>
+        </div>
+        <div style="display:none"><span class="bibtextype"></span></div>
+        <div style="display:none"><span class="if topic"><span class="topic"></span></span></div>
+      </li></ul>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/pcooksey/bibtex-js/e9c7d74d/src/bibtex_js.js"></script>
 
 
   <script
