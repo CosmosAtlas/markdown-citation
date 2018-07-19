@@ -35,6 +35,10 @@ MathJax.Hub.Config({
         year =         "1905",
         DOI =          "http://dx.doi.org/10.1002/andp.19053221004"
       }
+    @book{ait57,
+      author = "Donald Knuth",
+      title = "Concrete Mathematics"
+    }
   </textarea>
   <div id="bibtex_display">
 
@@ -73,7 +77,6 @@ MathJax.Hub.Config({
       </li></ul>
     </div>
 
-    <script type="text/javascript" src="https://cdn.rawgit.com/pcooksey/bibtex-js/e9c7d74d/src/bibtex_js.js"></script>
 
 
   <script
@@ -83,33 +86,9 @@ MathJax.Hub.Config({
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.1/markdown-it.js"></script>
   <script src="scripts/markdown-it-footnote.min.js"></script>
+  <script src="scripts/markdown-it-center-text.js"></script>
   <script src="main.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#MyButton').click(function(){
+  <script type="text/javascript" src="https://cdn.rawgit.com/pcooksey/bibtex-js/e9c7d74d/src/bibtex_js.js"></script>
 
-      });
-    });
-  </script>
-  <!-- <script>
-    function getText(myUrl){
-      var result = null;
-      $.ajax( {url: myUrl,
-               type: 'get',
-               dataType: 'html',
-               async: false,
-               success: function(data) {result = data; }
-             }
-           );
-      FlieReady = true;
-      return result;
-    }
-    var converter = new showdown.Converter({tables: true}),
-        text      = getText('./examples/example.md'),
-        html      = converter.makeHtml(text);
-    console.log(html);
-    document.getElementById('markdown').innerHTML = html;
-    console.log("test");
-  </script> -->
 </body>
 </html>
