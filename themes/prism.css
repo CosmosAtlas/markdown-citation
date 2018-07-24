@@ -6,6 +6,14 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
  * @author Lea Verou
  */
 
+ body {
+ 	font-family: "Times New Roman", Times, serif;
+  margin-right: 50px;
+  margin-left: 50px;
+ }
+
+
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
@@ -46,6 +54,23 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	pre[class*="language-"] {
 		text-shadow: none;
 	}
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+	p {
+		text-align: justify;
+	}
+}
+
+@page
+{
+    size: auto;   /* auto is the initial value */
+
+    /* this affects the margin in the printer settings */
+    margin: 25mm 25mm 25mm 25mm;
 }
 
 /* Code blocks */
@@ -240,5 +265,5 @@ div.code-toolbar > .toolbar span:focus {
 	text-decoration: none;
 }
 
-div[class="citation"]:before {content: '['}
-div[class="citation"]:after {content: ']';}
+span[class="citation"]:before {content: '['}
+span[class="citation"]:after {content: ']';}

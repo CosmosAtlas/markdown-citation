@@ -80,7 +80,7 @@ module.exports = function centertext_plugin(md) {
           foundStart = true;
           token         = state.tokens[delim.token];
           token.type    = 'centertext_open';
-          token.tag     = 'div';
+          token.tag     = 'span';
           token.nesting = 1;
           token.markup  = '[@';
           token.content = '';
@@ -89,7 +89,7 @@ module.exports = function centertext_plugin(md) {
           if (foundStart) {
             token         = state.tokens[delim.token];
             token.type    = 'centertext_close';
-            token.tag     = 'div';
+            token.tag     = 'span';
             token.nesting = -1;
             token.markup  = ']';
             token.content = '';

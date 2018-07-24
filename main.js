@@ -12,7 +12,7 @@ function getText(myUrl){
 }
 
 var md = new window.markdownit({html: true}).use(window.markdownitFootnote).use(window.markdownitCentertext),
-    text      = getText('./examples/example.md'),
+    text      = getText('./examples/report.md'),
     html      = md.render(text);
 console.log(html);
 document.getElementById('markdown').innerHTML = html;
@@ -26,15 +26,16 @@ for (var i = 0; i < classes.length; i++) {
 
 console.log(bibtexkeys[0]);
 
-var keys = " bibtexkeys=\"";
+var keys = document.createAttribute("bibtexkeys");
+keys.value = "";
 
 for (var i = 0; i < bibtexkeys.length - 1; i++) {
-  keys += bibtexkeys[i] + "\|";
+  keys.value += bibtexkeys[i] + "\|";
 }
 
-keys += bibtexkeys[bibtexkeys.length - 1] + "\"";
+keys.value += bibtexkeys[bibtexkeys.length - 1];
 
-console.log(keys);
+console.log(keys.value);
 
 var d = document.getElementById("bibtex_display");
-d.className += keys;
+d.setAttributeNode(keys);
