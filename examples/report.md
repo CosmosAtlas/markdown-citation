@@ -6,7 +6,7 @@
 
 ### Abstract
 
-Markdown is a widely used markup language on the internet. It's simplicity and ease of used made it a great tool for writting blog posts and documentations. It's design allowed it to be extended for more functionality. Many people and organization extended the original Markdown and some of the extensions became standards among users. This report shows an extension of Markdown by adding citation support through javascript implementation.
+Markdown is a widely used markup language on the internet. Its simplicity and ease of used made it a great tool for writting blog posts and documentations. Its design allowed it to be extended for more functionality. Many people and organization extended the original Markdown and some of the extensions became standards among users. This report shows an extension of Markdown, by adding citation support through javascript implementation.
 
 ### Introduction
 
@@ -18,7 +18,7 @@ I use Markdown in my daily life. However, many times I find it lack some fundame
 
 ### Markdown syntax
 
-Due to the nature of Markdown and it's standardizations, it's syntax translates to subset of HTML tags. Below are some major supported features and it's introduction in some standardization. CommonMark is a standardized spec for Markdown fromed by a group of people and now is the base for most Markdown specifications. GFM (GitHub Flavored Markdown) is an extension by GitHub that's based on CommonMark.
+Due to the nature of Markdown and its standardizations, its syntax translates to subset of HTML tags. Below are some major supported features and its introduction in some standardization. CommonMark is a standardized spec for Markdown fromed by a group of people and now is the base for most Markdown specifications. GFM (GitHub Flavored Markdown) is an extension by GitHub that's based on CommonMark.
 
 | Markdown Standarization | Supported Syntax |
 | - |:-|-|
@@ -26,23 +26,23 @@ Due to the nature of Markdown and it's standardizations, it's syntax translates 
 | CommonMark| All above and Fenced Code Blocks, Start number of ordered list. |
 | GFM | All above and Tables, Task list, Strkethrough, Autolinks |
 
-Since Markdown is designed to be translated to HTML, naturely HTML code can fall through the translater(parser). This allows Markdown to contain raw HTML code which makes many extension doesn't depend on Markdown Syntax. One such example is math rendering which is discussed later. However, in other situations, HTML fall though might not be enough. There are also safty reasons that HTML fall though is not good and some implementations does not support this feature such as GFM.
+Since Markdown is designed to be translated to HTML, naturely HTML code can fall through the translater (parser). This allows Markdown to contain raw HTML code which makes many extension doesn't depend on Markdown Syntax. One such example is math rendering which is discussed later. However, in other situations, HTML fall though might not be enough. There are also safety reasons that an HTML fall though is not good enough and some implementations do not support this feature such as GFM.
 
 ### Moltivation
 
-The goal of the project is to implement a extension of Markdown that is powerful enough to satisfy my needs but not make it too complicated. The benefit of Markdown is that I can keep all the text clean in files that is readable.
+The goal of the project is to implement a extension of Markdown that is powerful enough to satisfy my needs but not make it too complicated. The benefit of Markdown is that I can keep all the text clean in files that are readable.
 
 In a basic Markdown editor, all features of GFM is normally supported and many supports more features such as embedding code execution results in a file. However, these features requires local setup and often won't work out of the box. This project aims to avoid these problems.
 
-The extensions that I want for Markdown are math equation rendering and citations in bibtex style. Ideally also great pdf export functionality. Details of these features will be discussed in the implementation section.
+The extensions that I want for Markdown are math equation rendering and citations in bibtex style. In an ideal situation, I also want to generate good looking PDF files from the HTML output. Details of these features will be discussed in the implementation section.
 
 Many efforts has been done previously for extending Markdown to support the aforementioned features. Math equation rendering commonly supported by Markdown editors. However, cition support in bibtex style is seldomly seen and most of the implementations requires the exsistence of a local *LaTex* copy.
 
-For my purpose, I want something that's lightweight and works on any computer. So, I looked at javascript solutions. Javascript can be ran in any modern browser environment and browser is now an essential part of everyday computing. Javascript also have a huge amount of packages that provides many functionalities. As a result, this project is done by javascript using many open source libraries.
+For my purpose, I want something that's lightweight and works on any computer. So, I looked at javascript solutions. Javascript can be ran in any modern browser environment and browser is now an essential part of everyday computing. Javascript also has a huge number of packages that provide many functionalities. As a result, this project is done by javascript using many open source libraries.
 
 ### Pipeline
 
-In order to have a nicely looking HTML page translated from Markdown. There are a fews things that needs to be done. First, the Markdown file needs to be parsed and translated to raw HTML content. Then, the raw HTML needs to be processed for adding additional functionality and styling to make it look better.
+In order to have a nice looking HTML page translated from Markdown, there are a fews things that needs to be done. First, the Markdown file needs to be parsed and translated to raw HTML content. Then, the raw HTML needs to be processed for adding additional functionality and styling to make it look better.
 
 In this project, an outline of the style and additional functionalities of the page is pre-generated. An element of the generated HTML is allocated to host the HTML output from the Markdown translator. The structure looks like the following.
 
@@ -63,13 +63,13 @@ In the headings, javascript setup code for packages and CSS styling code is load
 
 The first way is using HTML passthrough. When a parser is parsing Markdown content, all text that's not in specific Markdown syntax will remain unmodified. Some natural extensions are done this way. For example, Markdown does not support resizing or centering an image. So instead of using Markdown syntax for including an image, one could simply write the raw HTML code for including an image with all proper properties one would like to set. Math equation rendering support is done using this method.
 
-The other way is to create an extension to the parser. Many parser supports extensions, so while parsing additional tasks could be done. For example, by using regular expressions, a extension can find e-mail addresses and automatically change them into e-mail links. Supporting citation is done using both of the methods for simplicity.
+The other way is to create an extension to the parser. Many parsers support extensions, so we can write plugins for those parsers to accomplish more things. For example, by using regular expressions, an extension can find e-mail addresses and automatically change them into e-mail links. Supporting citation is done using both of the methods for simplicity.
 
 ### Implementation
 
 #### Rendering math equations
 
-There are servel ways to display math equations in HTML. Display by an image^[[http://latex2png.com/](http://latex2png.com/)], using javascript libraries (MathJax^[[https://www.mathjax.org/](https://www.mathjax.org/)], Katex^[[https://khan.github.io/KaTeX/](https://khan.github.io/KaTeX/)]) or natively through MathML. For my purpose, I want to use *LaTex* equations which is very common for scientific writing and I am very familiar with them. So, I decided to used MathJax to display math equations. By properly setting up MathJax in the HTML outline code, any thing surrounded by `$` such as `$x^2$`
+There are several ways to display math equations in HTML. Display by an image^[[http://latex2png.com/](http://latex2png.com/)], using javascript libraries (MathJax^[[https://www.mathjax.org/](https://www.mathjax.org/)], Katex^[[https://khan.github.io/KaTeX/](https://khan.github.io/KaTeX/)]) or natively through MathML. For my purpose, I want to use *LaTex* equations which is very common for scientific writing and I am very familiar with them. So, I decided to used MathJax to display math equations. By properly setting up MathJax in the HTML outline code, any thing surrounded by `$` such as `$x^2$`
 will fall though the parser and in raw HTML will be rendered by MathJax. The reason I chose MathJax over Katex is because MathJax supports for functions from *amsmath*^[[https://ctan.org/pkg/amsmath?lang=en](https://ctan.org/pkg/amsmath?lang=en)] *LaTex* packages. The performance difference between MathJax and Katex in my oppinion is not as important as supporting more features. However, the nice thing about it is that I can easily switch to one or another if I found them more suitable in the future.
 
 #### Citations
@@ -101,7 +101,7 @@ Footnote is a common Markdown extension that functions like citations but doesn'
 
 By comparing some Markdown parsers implemented in javascript, I decided to used a parser called markdown-it^[[https://github.com/markdown-it/markdown-it](https://github.com/markdown-it/markdown-it)]. This parser is implemented with proper support for extensions and have more community plugins than other parsers that I've tried. I used another extension of this parser `markdown-it-center-text` as a base and modified it to suit my purpose.
 
-The extension added an extra parsing step that would identify the pattern and replace the text with proper HTML elements. For example, `text[@einstein]` will be replaced with `text<span class="citation">einstein</span>` by the parser. Then with proper CSS styling, the content of the HTML element would be wrapped by square brackets and the result will look like `text[einstein]`. I choose this style because it's my favorite styling for citations.
+The extension added an extra parsing step that would identify the pattern and replace the text with proper HTML elements. For example, `text[@einstein]` will be replaced with `text<span class="citation">einstein</span>` by the parser. Then with proper CSS styling, the content of the HTML element would be wrapped by square brackets and the result will look like `text[einstein]`. I chose this style because it's my favorite styling for citations.
 
 Due to my lack of knowledge in javascript development, I couldn't find a way build a plugin from ground up. So as a result, I downloaded the extension `markdown-it-center-text` locally and modified the source file.
 
@@ -125,7 +125,7 @@ With proper CSS styling added, the result of the implementation renders nicely i
 
 One of the features that most Markdown editors have but give inconsistence result is converting to PDF. In my experience are 2 common ways to do this. The first is to render the HTML output in a browser and utilize the browser's build in print to file feature. The other is to convert Markdown to *LaTex* then to PDF. The previous method requires proper print CSS styling and the later often requires a local installation of *LaTex*.
 
-In this project, I considered the first method. By opening a live server on my machine to avoid the some-origin policy^[[https://www.w3.org/Security/wiki/Same_Origin_Policy](https://www.w3.org/Security/wiki/Same_Origin_Policy)], a webpage converted from Markdown will be opened in a browser then using the print to file feature to retreive a PDF file. To my surprise, different browsers behaves very differently to each other. Browsers use different rendering engines and when trying to print a webpage, different browsers use different techniques. In my personal experience, Chrome would often give the best result and followed by Firefox. Other browsers such like Midori simply give a cropped screenshot of the webpage which is far from satisfiable.
+In this project, I considered the first method. By opening a live server on my machine to avoid the some-origin policy^[[https://www.w3.org/Security/wiki/Same_Origin_Policy](https://www.w3.org/Security/wiki/Same_Origin_Policy)], a webpage converted from Markdown will be opened in a browser then using the print to file feature to retreive a PDF file. To my surprise, different browsers behave very differently from each other. Browsers use different rendering engines and when trying to print a Webpage, different browsers use different techniques. In my personal experience, Chrome would often give the best result and followed by Firefox. Other browsers such like Midori simply give a cropped screenshot of the webpage which is far from satisfiable.
 
 #### Future improvements
 
@@ -155,3 +155,76 @@ $$ \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{
 $$ \nabla \cdot \vec{\mathbf{E}}  = 4 \pi \rho  $$
 $$ \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}} $$
 $$ \nabla \cdot \vec{\mathbf{B}}  = 0 $$
+
+### Appendix
+#### HTML generated content for reference
+In the outline HTML, the setup code block is the following
+
+```html
+  <div id="bibtex_display">
+    <div class="if bibtex_template" style="display: none;">
+      <h3> References </h4>
+      <ul style="list-style:none; padding-left: 0;"> <li>
+        <span class="if journal !nolink">
+          <a class="bibtexVar" extra="BIBTEXKEY">
+              <span style="text-decoration: underline;" class="title"></span>,
+          </a>
+        </span>
+        <span class="if title nolink">
+              <span class="title"></span>,
+        </span>
+        <div class="if author">
+          <span class="author"></span>
+        </div>
+        <div>
+          <span class="if journal"><em><span class="journal"></span></em>,</span>
+          <span class="if booktitle">In <em><span class="booktitle"></span></em>,</span>
+          <span class="if editor"><span class="editor"></span> (editors),</span>
+          <span class="if publisher"><em><span class="publisher"></span></em>,</span>
+          <span class="if !journal number">Technical report <span class="number"></span>,</span>
+          <span class="if institution"><span class="institution"></span>,</span>
+          <span class="if address"><span class="address"></span>,</span>
+          <span class="if volume"><span class="volume"></span>,</span>
+          <span class="if journal number">(<span class="number"></span>),</span>
+          <span class="if pages"> pages <span class="pages"></span>,</span>
+          <span class="if month"><span class="month"></span>,</span>
+          <span class="if year"><span class="year"></span>.</span>
+          <span class="if note"><span class="note"></span>.</span>
+          <a class="bibtexVar" role="button" data-toggle="collapse" href="#bib+BIBTEXKEY+" aria-expanded="false" aria-controls="bib+BIBTEXKEY+" extra="BIBTEXKEY">
+  		</a>
+        </div>
+        <div style="display:none"><span class="bibtextype"></span></div>
+        <div style="display:none"><span class="if topic"><span class="topic"></span></span></div>
+      </li></ul>
+    </div>
+```
+
+The javascript library I used supports the  feature of only displaying citations with specific bibtex keys. So I wrote a piece of javascript code that adds the bibtex keys used in the main text the `div` element with `id="bibtex_display"`. And the final resulting generated reference section will be the following. Extra white space is deleted for ease of read.
+
+```html
+<div id="bibtex_display" bibtexkeys="cla14">
+<div class="if bibtexentry" style="">
+      <h3> References </h3>
+      <ul style="list-style:none; padding-left: 0;"> <li>
+        <span class="">
+          <a class="bibtexVar" extra="BIBTEXKEY">
+              <span style="text-decoration: underline;" class="title">The Concise Oxford Dictionary of Mathematics</span>,
+          </a>
+        </span>        
+        <div class="">
+          <span class="author">Christopher Clapham, James Nicholson</span>
+        </div>
+        <div>          
+          <span class=""><em><span class="publisher">Oxford University Press</span></em>,</span>
+          <span class=""><span class="month">July</span>,</span>
+          <span class=""><span class="year">2014</span>.</span>          
+          <a class="bibtexVar" role="button" data-toggle="collapse" href="#bibcla14" aria-expanded="false" aria-controls="bibcla14" extra="BIBTEXKEY">
+  		</a>
+        </div>
+        <div style="display:none"><span class="bibtextype"></span></div>
+        <div style="display:none"></div>
+      </li></ul>
+    </div></div>
+```
+
+In the given bibtex example, there are *LaTex* macros for special characters. The javascrip library I used have a dictionary that converts these to unicode. ^[[https://github.com/pcooksey/bibtex-js/blob/master/src/bibtex_js.js#L1192](https://github.com/pcooksey/bibtex-js/blob/master/src/bibtex_js.js#L1192)]
